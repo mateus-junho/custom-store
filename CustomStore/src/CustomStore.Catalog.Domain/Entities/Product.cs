@@ -31,7 +31,11 @@ namespace CustomStore.Catalog.Domain.Entities
             Active = active;
             Price = price;
             Image = image;
+
+            Validate();
         }
+
+        protected Product() { }
 
         public void Activate() => Active = true;
 
@@ -55,6 +59,11 @@ namespace CustomStore.Catalog.Domain.Entities
                 quantity *= -1;
             }
 
+            if(!HasQuantityAvailable(quantity))
+            {
+                throw new DomainException("Unavailable quantity");
+            }
+
             Quantity -= quantity;
         }
 
@@ -66,6 +75,15 @@ namespace CustomStore.Catalog.Domain.Entities
         public bool HasQuantityAvailable(int quantity)
         {
             return Quantity >= quantity;
+        }
+
+        public void Validate()
+        {
+            AssertionConcern.ValidateEmpty(Name, "Name cannot be empty");
+            AssertionConcern.ValidateEmpty(Description, "Description cannot be empty");
+            AssertionConcern.ValidateDifferent(CategoryId, Guid.Empty, "Category Id cannot be empty");
+            AssertionConcern.ValidateLessOrEqualsThan(Price, 0, "Price cannot be less or equals than 0");
+            AssertionConcern.ValidateEmpty(Image, "Image cannot be empty");
         }
     }
 }

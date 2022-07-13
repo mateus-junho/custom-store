@@ -12,6 +12,16 @@ namespace CustomStore.Catalog.Domain.Entities
         {
             Name = name;
             Code = code;
+
+            Validate();
+        }
+
+        protected Category() { }
+
+        public void Validate()
+        {
+            AssertionConcern.ValidateEmpty(Name, "Name cannot be empty");
+            AssertionConcern.ValidateLessThan(Code, 0, "Code should be positive");
         }
     }
 }

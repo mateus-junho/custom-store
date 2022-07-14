@@ -1,4 +1,5 @@
-﻿using CustomStore.Core.DomainObjects;
+﻿using CustomStore.Catalog.Domain.ValueObjects;
+using CustomStore.Core.DomainObjects;
 using System;
 
 namespace CustomStore.Catalog.Domain.Entities
@@ -21,9 +22,11 @@ namespace CustomStore.Catalog.Domain.Entities
 
         public int Quantity { get; private set; }
 
+        public Dimensions Dimensions { get; private set; }
+
         public Category Category { get; private set; }
 
-        public Product(Guid categoryId, string name, string description, bool active, decimal price, string image)
+        public Product(Guid categoryId, string name, string description, bool active, decimal price, string image, Dimensions dimensions)
         {
             CategoryId = categoryId;
             Name = name;
@@ -31,6 +34,7 @@ namespace CustomStore.Catalog.Domain.Entities
             Active = active;
             Price = price;
             Image = image;
+            Dimensions = dimensions;
 
             Validate();
         }
@@ -75,6 +79,11 @@ namespace CustomStore.Catalog.Domain.Entities
         public bool HasQuantityAvailable(int quantity)
         {
             return Quantity >= quantity;
+        }
+
+        public void SetDimensions(Dimensions dimensions)
+        {
+            Dimensions = dimensions;
         }
 
         public void Validate()

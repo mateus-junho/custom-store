@@ -1,4 +1,5 @@
-﻿using CustomStore.Catalog.Domain.ValueObjects;
+﻿using CustomStore.Catalog.Domain.Constants;
+using CustomStore.Catalog.Domain.ValueObjects;
 using CustomStore.Core.DomainObjects;
 using System;
 
@@ -35,6 +36,7 @@ namespace CustomStore.Catalog.Domain.Entities
             Price = price;
             Image = image;
             Dimensions = dimensions;
+            RegisterDate = DateTime.Today;
 
             Validate();
         }
@@ -88,11 +90,12 @@ namespace CustomStore.Catalog.Domain.Entities
 
         public void Validate()
         {
-            AssertionConcern.ValidateEmpty(Name, "Name cannot be empty");
-            AssertionConcern.ValidateEmpty(Description, "Description cannot be empty");
-            AssertionConcern.ValidateDifferent(CategoryId, Guid.Empty, "Category Id cannot be empty");
-            AssertionConcern.ValidateLessOrEqualsThan(Price, 0, "Price cannot be less or equals than 0");
-            AssertionConcern.ValidateEmpty(Image, "Image cannot be empty");
+            AssertionConcern.ValidateEmpty(Name, ExceptionMessages.NameValidationMessage);
+            AssertionConcern.ValidateEmpty(Description, ExceptionMessages.DescriptionValidationMessage);
+            AssertionConcern.ValidateEquals(CategoryId, Guid.Empty, ExceptionMessages.CategoryIdValidationMessage);
+            AssertionConcern.ValidateLessOrEqualsThan(Price, 0, ExceptionMessages.PriceValidationMessage);
+            AssertionConcern.ValidateEmpty(Image, ExceptionMessages.ImageValidationMessage);
+            AssertionConcern.ValidateEmpty(Image, ExceptionMessages.ImageValidationMessage);
         }
     }
 }

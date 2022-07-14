@@ -1,4 +1,5 @@
-﻿using CustomStore.Core.DomainObjects;
+﻿using CustomStore.Catalog.Domain.Constants;
+using CustomStore.Core.DomainObjects;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -24,9 +25,9 @@ namespace CustomStore.Catalog.Domain.ValueObjects
 
         public void Validate()
         {
-            AssertionConcern.ValidateLessOrEqualsThan(Height, 0, "Height should be greater than 0");
-            AssertionConcern.ValidateLessOrEqualsThan(Width, 0, "Height should be greater than 0");
-            AssertionConcern.ValidateLessOrEqualsThan(Depth, 0, "Height should be greater than 0");
+            AssertionConcern.ValidateLessOrEqualsThan(Height, 0, ExceptionMessages.HeightValidationMessage);
+            AssertionConcern.ValidateLessOrEqualsThan(Width, 0, ExceptionMessages.WidthValidationMessage);
+            AssertionConcern.ValidateLessOrEqualsThan(Depth, 0, ExceptionMessages.DepthValidationMessage);
         }
     }
 }

@@ -27,6 +27,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{996A2BE0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomStore.Catalog.Domain.Tests", "src\CustomStore.Catalog.Domain.Tests\CustomStore.Catalog.Domain.Tests.csproj", "{02F7168A-FF77-4EE5-A47B-CB97812F7300}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomStore.Catalog.Data", "src\CustomStore.Catalog.Data\CustomStore.Catalog.Data.csproj", "{9994B71E-C3D5-40E9-BFCD-EB3EBED7996C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{02F7168A-FF77-4EE5-A47B-CB97812F7300}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02F7168A-FF77-4EE5-A47B-CB97812F7300}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02F7168A-FF77-4EE5-A47B-CB97812F7300}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9994B71E-C3D5-40E9-BFCD-EB3EBED7996C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9994B71E-C3D5-40E9-BFCD-EB3EBED7996C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9994B71E-C3D5-40E9-BFCD-EB3EBED7996C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9994B71E-C3D5-40E9-BFCD-EB3EBED7996C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +66,7 @@ Global
 		{A9E0E7E7-4C6F-4154-A834-F79338EA7A88} = {BD9A9681-4EB2-4558-946D-331170BCDB38}
 		{996A2BE0-172C-4B48-AA24-07DBF2A83FEC} = {0401A135-7B16-47B0-A067-22BB3DF76C63}
 		{02F7168A-FF77-4EE5-A47B-CB97812F7300} = {996A2BE0-172C-4B48-AA24-07DBF2A83FEC}
+		{9994B71E-C3D5-40E9-BFCD-EB3EBED7996C} = {0401A135-7B16-47B0-A067-22BB3DF76C63}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {39BC26FA-4699-427F-8327-4C5334E5C862}

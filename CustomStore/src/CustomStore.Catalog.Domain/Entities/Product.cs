@@ -36,7 +36,6 @@ namespace CustomStore.Catalog.Domain.Entities
             Price = price;
             Image = image;
             Dimensions = dimensions;
-            RegisterDate = DateTime.Today;
 
             Validate();
         }

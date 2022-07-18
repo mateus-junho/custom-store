@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace CustomStore.Catalog.Domain.Interfaces
+namespace CustomStore.Catalog.Domain.Interfaces.Repository
 {
     public interface IProductRepository : IRepository<Product>
     {

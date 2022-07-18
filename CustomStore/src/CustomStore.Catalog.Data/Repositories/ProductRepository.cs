@@ -1,6 +1,6 @@
 ﻿using CustomStore.Catalog.Data.Contexts;
 using CustomStore.Catalog.Domain.Entities;
-using CustomStore.Catalog.Domain.Interfaces;
+using CustomStore.Catalog.Domain.Interfaces.Repository;
 using CustomStore.Core.Data;
 using Microsoft.EntityFrameworkCore;
 using System;

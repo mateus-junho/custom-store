@@ -27,13 +27,14 @@ namespace CustomStore.Catalog.Domain.Entities
 
         public Category Category { get; private set; }
 
-        public Product(Guid categoryId, string name, string description, bool active, decimal price, string image, Dimensions dimensions)
+        public Product(Guid categoryId, string name, string description, bool active, decimal price, int quantity, string image, Dimensions dimensions)
         {
             CategoryId = categoryId;
             Name = name;
             Description = description;
             Active = active;
             Price = price;
+            Quantity = quantity;
             Image = image;
             Dimensions = dimensions;
 
@@ -93,7 +94,7 @@ namespace CustomStore.Catalog.Domain.Entities
             AssertionConcern.ValidateEmpty(Description, ExceptionMessages.DescriptionValidationMessage);
             AssertionConcern.ValidateEquals(CategoryId, Guid.Empty, ExceptionMessages.CategoryIdValidationMessage);
             AssertionConcern.ValidateLessOrEqualsThan(Price, 0, ExceptionMessages.PriceValidationMessage);
-            AssertionConcern.ValidateEmpty(Image, ExceptionMessages.ImageValidationMessage);
+            AssertionConcern.ValidateLessThan(Quantity, 0, ExceptionMessages.QuantityValidationMessage);
             AssertionConcern.ValidateEmpty(Image, ExceptionMessages.ImageValidationMessage);
         }
     }

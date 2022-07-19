@@ -7,6 +7,7 @@
         public const string DescriptionValidationMessage = "Description cannot be empty";
         public const string CategoryIdValidationMessage = "Category Id cannot be empty";
         public const string PriceValidationMessage = "Price cannot be less or equals than 0";
+        public const string QuantityValidationMessage = "Quantity cannot be less than 0";
         public const string ImageValidationMessage = "Image cannot be empty";
 
         // Dimensions

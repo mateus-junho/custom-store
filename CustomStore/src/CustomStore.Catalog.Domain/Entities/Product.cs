@@ -53,9 +53,32 @@ namespace CustomStore.Catalog.Domain.Entities
             CategoryId = category.Id;
         }
 
+        public void SetName(string name)
+        {
+            Name = name;
+
+            Validate();
+        }
+
+        public void SetImage(string image)
+        {
+            Image = image;
+
+            Validate();
+        }
+
+        public void SetPrice(decimal price)
+        {
+            Price = price;
+
+            Validate();
+        }
+
         public void SetDescription(string description)
         {
             Description = description;
+
+            Validate();
         }
 
         public void TakeQuantity(int quantity)
@@ -86,6 +109,8 @@ namespace CustomStore.Catalog.Domain.Entities
         public void SetDimensions(Dimensions dimensions)
         {
             Dimensions = dimensions;
+
+            Validate();
         }
 
         public void Validate()

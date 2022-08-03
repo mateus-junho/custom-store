@@ -40,6 +40,9 @@ namespace CustomStore.WebApp.MVC
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddControllersWithViews();
+
             services.AddRazorPages();
 
             services.AddMediatR(typeof(Startup));
@@ -72,6 +75,7 @@ namespace CustomStore.WebApp.MVC
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllers();
                 endpoints.MapRazorPages();
             });
         }

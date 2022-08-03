@@ -9,6 +9,11 @@ namespace CustomStore.Core.Bus
     {
         private readonly IMediator mediatr;
 
+        public MediatrHandler(IMediator mediator)
+        {
+            mediatr = mediator;
+        }
+
         public async Task PublishEvent<T>(T customEvent) where T : Event
         {
             await mediatr.Publish(customEvent);

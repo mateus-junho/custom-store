@@ -40,5 +40,7 @@ namespace CustomStore.Catalog.Application.DTOs
         public decimal Depth { get; set; }
 
         public CategoryDto Category { get; set; }
+
+        public IEnumerable<CategoryDto> CategoriesOptions { get; set; }
     }
 }

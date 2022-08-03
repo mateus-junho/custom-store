@@ -3,6 +3,7 @@ using CustomStore.Catalog.Application.Interfaces;
 using CustomStore.Catalog.Application.Mappings;
 using CustomStore.Catalog.Domain.Interfaces.Repository;
 using CustomStore.Catalog.Domain.Interfaces.Services;
+using CustomStore.Catalog.Domain.ValueObjects;
 using CustomStore.Core.DomainObjects;
 using System;
 using System.Collections.Generic;
@@ -55,7 +56,23 @@ namespace CustomStore.Catalog.Application.Services
 
         public async Task UpdateProduct(ProductDto productDto)
         {
-            var product = productDto.BuildDomainModel();
+            var product = await productRepository.GetById(productDto.Id);
+            product.SetName(productDto.Name);
+            product.SetDescription(productDto.Description);
+            product.SetImage(productDto.Image);
+            product.SetPrice(productDto.Price);
+            var dimensions = new Dimensions(productDto.Height, productDto.Width, productDto.Depth);
+            product.SetDimensions(dimensions);
+
+            if(productDto.Active)
+            {
+                product.Activate();
+            }
+            else
+            {
+                product.Deactivate();
+            }
+
             productRepository.Update(product);
 
             await productRepository.UnitOfWork.Commit();

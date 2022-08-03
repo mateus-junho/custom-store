@@ -32,7 +32,10 @@ namespace CustomStore.Catalog.Data.Repositories
 
         public async Task<IEnumerable<Product>> GetAll()
         {
-            return await context.Products.AsNoTracking().ToListAsync();
+            return await context.Products
+                .Include(p => p.Category)
+                .AsNoTracking()
+                .ToListAsync();
         }
 
         public async Task<IEnumerable<Product>> GetByCategory(int code)
@@ -45,7 +48,9 @@ namespace CustomStore.Catalog.Data.Repositories
 
         public async Task<Product> GetById(Guid id)
         {
-            return await context.Products.AsNoTracking().FirstOrDefaultAsync(p => p.Id == id);
+            return await context.Products
+                .Include(p => p.Category)
+                .FirstOrDefaultAsync(p => p.Id == id);
         }
 
         public async Task<IEnumerable<Category>> GetCategories()

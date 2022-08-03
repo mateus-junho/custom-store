@@ -77,6 +77,9 @@ namespace CustomStore.WebApp.MVC
             {
                 endpoints.MapControllers();
                 endpoints.MapRazorPages();
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Catalog}/{action=Index}/{id?}");
             });
         }
     }

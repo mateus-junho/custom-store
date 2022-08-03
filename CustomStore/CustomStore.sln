@@ -29,9 +29,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomStore.Catalog.Domain.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomStore.Catalog.Data", "src\CustomStore.Catalog.Data\CustomStore.Catalog.Data.csproj", "{9994B71E-C3D5-40E9-BFCD-EB3EBED7996C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomStore.Catalog.Application", "src\CustomStore.Catalog.Application\CustomStore.Catalog.Application.csproj", "{67F4470A-64DB-4687-BF8D-344C63940592}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomStore.Catalog.Application", "src\CustomStore.Catalog.Application\CustomStore.Catalog.Application.csproj", "{67F4470A-64DB-4687-BF8D-344C63940592}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomStore.WebApp.MVC", "src\CustomStore.WebApp.MVC\CustomStore.WebApp.MVC.csproj", "{98424BC0-46CB-4CF2-9820-5D824A4B2B89}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomStore.WebApp.MVC", "src\CustomStore.WebApp.MVC\CustomStore.WebApp.MVC.csproj", "{98424BC0-46CB-4CF2-9820-5D824A4B2B89}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

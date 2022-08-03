@@ -49,7 +49,7 @@ namespace CustomStore.Catalog.Domain.Services
 
             if(product.Quantity < ALERT_MIN_STOCK_QUANTITY)
             {
-                await bus.PublishEvent(new ProductBelowStockMin(product.Id, product.Quantity));
+                await bus.PublishEvent(new ProductBelowStockMinEvent(product.Id, product.Quantity));
             }
 
             productRepository.Update(product);

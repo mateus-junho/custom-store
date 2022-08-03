@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace CustomStore.Catalog.Domain.Events
 {
-    public class ProductBelowStockMinHandler : INotificationHandler<ProductBelowStockMin>
+    public class ProductEventHandler : INotificationHandler<ProductBelowStockMinEvent>
     {
         private readonly IProductRepository productRepository;
 
-        public ProductBelowStockMinHandler(IProductRepository productRepository)
+        public ProductEventHandler(IProductRepository productRepository)
         {
             this.productRepository = productRepository;
         }
 
-        public async Task Handle(ProductBelowStockMin notification, CancellationToken cancellationToken)
+        public async Task Handle(ProductBelowStockMinEvent notification, CancellationToken cancellationToken)
         {
             var product = await productRepository.GetById(notification.AggregateId);
 

@@ -2,10 +2,12 @@
 using CustomStore.Catalog.Application.Services;
 using CustomStore.Catalog.Data.Contexts;
 using CustomStore.Catalog.Data.Repositories;
+using CustomStore.Catalog.Domain.Events;
 using CustomStore.Catalog.Domain.Interfaces.Repository;
 using CustomStore.Catalog.Domain.Interfaces.Services;
 using CustomStore.Catalog.Domain.Services;
 using CustomStore.Core.Bus;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CustomStore.WebApp.MVC.Configuration
@@ -24,6 +26,9 @@ namespace CustomStore.WebApp.MVC.Configuration
             services.AddScoped<IStockService, StockService>();
 
             services.AddScoped<IProductAppService, ProductAppService>();
+
+            // Event configuration
+            services.AddScoped<INotificationHandler<ProductBelowStockMinEvent>, ProductEventHandler>();
         }
     }
 }

@@ -3,11 +3,11 @@ using System;
 
 namespace CustomStore.Catalog.Domain.Events
 {
-    public class ProductBelowStockMin : DomainEvent
+    public class ProductBelowStockMinEvent : DomainEvent
     {
         public int RemainingQuantity { get; private set; }
 
-        public ProductBelowStockMin(Guid aggregateId, int remainingQuantity) : base(aggregateId)
+        public ProductBelowStockMinEvent(Guid aggregateId, int remainingQuantity) : base(aggregateId)
         {
             RemainingQuantity = remainingQuantity;
         }

@@ -45,5 +45,10 @@ namespace CustomStore.Core.DomainObjects
         {
             return (GetType().GetHashCode() * 907) + Id.GetHashCode();
         }
+
+        public virtual bool IsValid()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

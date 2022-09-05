@@ -7,6 +7,7 @@ using CustomStore.Catalog.Domain.Interfaces.Repository;
 using CustomStore.Catalog.Domain.Interfaces.Services;
 using CustomStore.Catalog.Domain.Services;
 using CustomStore.Core.Bus;
+using CustomStore.Sales.Application.Commands;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -27,8 +28,11 @@ namespace CustomStore.WebApp.MVC.Configuration
 
             services.AddScoped<IProductAppService, ProductAppService>();
 
-            // Event configuration
+            // Catalog - Event configuration
             services.AddScoped<INotificationHandler<ProductBelowStockMinEvent>, ProductEventHandler>();
+
+            // Sales
+            services.AddScoped<IRequestHandler<AddOrderItemCommand, bool>, OrderCommandHandler>();
         }
     }
 }

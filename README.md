@@ -1,1 +1,1 @@
-# custom-store
+# Custom Store

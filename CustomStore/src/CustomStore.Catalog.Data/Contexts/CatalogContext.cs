@@ -1,5 +1,6 @@
 ﻿using CustomStore.Catalog.Domain.Entities;
 using CustomStore.Core.Data;
+using CustomStore.Core.Messages;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,8 @@ namespace CustomStore.Catalog.Data.Contexts
             {
                 property.SetColumnType("nvarchar(250)");
             }
+
+            modelBuilder.Ignore<Event>();
 
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(CatalogContext).Assembly);
         }

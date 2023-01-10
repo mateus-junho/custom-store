@@ -15,7 +15,7 @@ namespace CustomStore.Sales.Data.Mappings
                 .HasColumnType("varchar(100)");
 
             builder.Property(c => c.Percentage)
-                .HasColumnType("decimal(1,4)");
+                .HasColumnType("decimal(5,4)");
 
             builder.Property(c => c.DiscountValue)
                 .HasColumnType("decimal(10,2)");

@@ -1,10 +1,16 @@
-﻿using System;
+﻿using CustomStore.Core.Messages;
+using System;
+using System.Collections.Generic;
 
 namespace CustomStore.Core.DomainObjects
 {
     public abstract class Entity
     {
         public Guid Id { get; set; }
+
+        private List<Event> notifications;
+
+        public IReadOnlyCollection<Event> Notifications => notifications?.AsReadOnly();
 
         protected Entity()
         {
@@ -44,6 +50,11 @@ namespace CustomStore.Core.DomainObjects
         public override int GetHashCode()
         {
             return (GetType().GetHashCode() * 907) + Id.GetHashCode();
+        }
+
+        public void ClearEvents()
+        {
+            notifications?.Clear();
         }
 
         public virtual bool IsValid()

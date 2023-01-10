@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 
 namespace CustomStore.Core.Bus
 {
-    public class MediatrHandler : IMediatrHandler
+    public class CustomMediatrHandler : ICustomMediatrHandler
     {
         private readonly IMediator mediatr;
 
-        public MediatrHandler(IMediator mediator)
+        public CustomMediatrHandler(IMediator mediator)
         {
             mediatr = mediator;
         }
@@ -17,6 +17,11 @@ namespace CustomStore.Core.Bus
         public async Task PublishEvent<T>(T customEvent) where T : Event
         {
             await mediatr.Publish(customEvent);
+        }
+
+        public async Task<bool> SendCommand<T>(T command) where T : Command
+        {
+            return await mediatr.Send(command); //request
         }
     }
 }

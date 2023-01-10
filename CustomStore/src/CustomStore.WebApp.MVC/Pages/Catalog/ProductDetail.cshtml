@@ -157,7 +157,7 @@
 
             <p>Only @Model.Quantity in stock!</p>
             <p>@Model.Description</p>
-            <form method="post" asp-controller="Carrinho" asp-action="AdicionarItem">
+            <form method="post" asp-controller="Cart" asp-action="AddItem">
 
                 <input type="hidden" id="Id" name="Id" value="@Model.Id"/>
 
@@ -170,7 +170,6 @@
                     </div>
                 </div>
 
-                <!-- Botoes de compra -->
                 <div class="section" style="padding-bottom: 20px;">
                     <button type="submit" class="btn btn-success"><span style="margin-right: 20px" aria-hidden="true"></span> Buy now!</button>
                 </div>

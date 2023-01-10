@@ -29,5 +29,24 @@ namespace CustomStore.Sales.Domain.Entities
         public bool Used { get; private set; }
 
         public IEnumerable<Order> Orders { get; set; }
+
+        protected Voucher() { }
+
+        public Voucher(VoucherDiscountType voucherDiscountType, decimal value, bool active)
+        {
+            VoucherDiscountType = voucherDiscountType;
+
+            if(voucherDiscountType == VoucherDiscountType.Percentage)
+            {
+                Percentage = value;
+            }
+            else
+            {
+                DiscountValue = value;
+            }
+
+            Active = active;
+            Used = false;
+        }
     }
 }

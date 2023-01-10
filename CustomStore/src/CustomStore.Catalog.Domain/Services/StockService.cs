@@ -11,11 +11,11 @@ namespace CustomStore.Catalog.Domain.Services
     public class StockService : IStockService
     {
         private readonly IProductRepository productRepository;
-        private readonly IMediatrHandler bus;
+        private readonly ICustomMediatrHandler bus;
 
         private const int ALERT_MIN_STOCK_QUANTITY = 10;
 
-        public StockService(IProductRepository productRepository, IMediatrHandler bus)
+        public StockService(IProductRepository productRepository, ICustomMediatrHandler bus)
         {
             this.productRepository = productRepository;
             this.bus = bus;

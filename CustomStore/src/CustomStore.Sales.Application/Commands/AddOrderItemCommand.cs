@@ -10,15 +10,15 @@ namespace CustomStore.Sales.Application.Commands
         public Guid ProductId { get; private set; }
         public string Name { get; private set; }
         public int Quantity { get; private set; }
-        public decimal UnitaryValue { get; private set; }
+        public decimal Price { get; private set; }
 
-        public AddOrderItemCommand(Guid clientId, Guid productId, string name, int quantity, decimal unitaryValue)
+        public AddOrderItemCommand(Guid clientId, Guid productId, string name, int quantity, decimal price)
         {
             ClientId = clientId;
             ProductId = productId;
             Name = name;
             Quantity = quantity;
-            UnitaryValue = unitaryValue;
+            Price = price;
         }
 
         public override bool IsValid()
@@ -52,9 +52,9 @@ namespace CustomStore.Sales.Application.Commands
                 .LessThanOrEqualTo(50)
                 .WithMessage("Max quantity is 50");
 
-            RuleFor(c => c.UnitaryValue)
+            RuleFor(c => c.Price)
                 .GreaterThan(0)
-                .WithMessage("Unitary value should be greater than 0");
+                .WithMessage("Price should be greater than 0");
         }
     }
 }

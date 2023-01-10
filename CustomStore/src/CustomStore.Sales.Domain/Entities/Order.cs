@@ -12,7 +12,7 @@ namespace CustomStore.Sales.Domain.Entities
 
         public Guid ClientId { get; private set; }
 
-        public Guid VoucherId { get; private set; }
+        public Guid? VoucherId { get; private set; }
 
         public bool VoucherApplied { get; private set; }
 

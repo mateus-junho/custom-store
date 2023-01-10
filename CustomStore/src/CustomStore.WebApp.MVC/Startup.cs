@@ -1,4 +1,5 @@
 using CustomStore.Catalog.Data.Contexts;
+using CustomStore.Sales.Data.Contexts;
 using CustomStore.WebApp.MVC.Configuration;
 using CustomStore.WebApp.MVC.Data;
 using MediatR;
@@ -35,6 +36,10 @@ namespace CustomStore.WebApp.MVC
                     Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddDbContext<CatalogContext>(options =>
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddDbContext<SalesContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 

@@ -20,6 +20,7 @@
     <ProjectReference Include="..\CustomStore.Catalog.Domain\CustomStore.Catalog.Domain.csproj" />
     <ProjectReference Include="..\CustomStore.Core\CustomStore.Core.csproj" />
     <ProjectReference Include="..\CustomStore.Sales.Application\CustomStore.Sales.Application.csproj" />
+    <ProjectReference Include="..\CustomStore.Sales.Data\CustomStore.Sales.Data.csproj" />
   </ItemGroup>
 
 </Project>

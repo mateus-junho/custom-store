@@ -101,6 +101,8 @@ namespace CustomStore.Sales.Domain.Entities
 
             item.CalculateValue();
             orderItems.Add(item);
+
+            CalculateOrderValue();
         }
 
         public void RemoveItem(OrderItem item)

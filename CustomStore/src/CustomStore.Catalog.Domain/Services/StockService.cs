@@ -2,7 +2,7 @@
 using CustomStore.Catalog.Domain.Events;
 using CustomStore.Catalog.Domain.Interfaces.Repository;
 using CustomStore.Catalog.Domain.Interfaces.Services;
-using CustomStore.Core.Bus;
+using CustomStore.Core.Communication;
 using System;
 using System.Threading.Tasks;
 

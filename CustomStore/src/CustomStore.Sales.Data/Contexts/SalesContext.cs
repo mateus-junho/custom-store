@@ -1,4 +1,4 @@
-﻿using CustomStore.Core.Bus;
+﻿using CustomStore.Core.Communication;
 using CustomStore.Core.Data;
 using CustomStore.Core.Messages;
 using CustomStore.Sales.Data.Extensions;

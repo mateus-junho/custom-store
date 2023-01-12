@@ -1,5 +1,5 @@
 ﻿using CustomStore.Catalog.Application.Interfaces;
-using CustomStore.Core.Bus;
+using CustomStore.Core.Communication;
 using CustomStore.Sales.Application.Commands;
 using Microsoft.AspNetCore.Mvc;
 using System;

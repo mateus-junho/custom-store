@@ -3,7 +3,7 @@ using CustomStore.Core.Messages;
 using MediatR;
 using System.Threading.Tasks;
 
-namespace CustomStore.Core.Bus
+namespace CustomStore.Core.Communication
 {
     public class CustomMediatrHandler : ICustomMediatrHandler
     {

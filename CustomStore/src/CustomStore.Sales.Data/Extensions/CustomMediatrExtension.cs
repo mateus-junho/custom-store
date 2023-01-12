@@ -1,4 +1,4 @@
-﻿using CustomStore.Core.Bus;
+﻿using CustomStore.Core.Communication;
 using CustomStore.Core.DomainObjects;
 using CustomStore.Sales.Data.Contexts;
 using System.Linq;

@@ -1,5 +1,6 @@
 ﻿using CustomStore.Core.Communication;
 using CustomStore.Core.Messages;
+using CustomStore.Core.Messages.CommonMessages.Notifications;
 using CustomStore.Sales.Domain.Entities;
 using CustomStore.Sales.Domain.Interfaces;
 using MediatR;
@@ -65,7 +66,7 @@ namespace CustomStore.Sales.Application.Commands
 
             foreach (var error in message.ValidationResult.Errors)
             {
-                // throw error event
+                customMediatrHandler.PublishNotification(new DomainNotification(message.MessageType, error.ErrorMessage));
             }
 
             return false;

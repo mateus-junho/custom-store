@@ -7,6 +7,7 @@ using CustomStore.Catalog.Domain.Interfaces.Repository;
 using CustomStore.Catalog.Domain.Interfaces.Services;
 using CustomStore.Catalog.Domain.Services;
 using CustomStore.Core.Communication;
+using CustomStore.Core.Messages.CommonMessages.Notifications;
 using CustomStore.Sales.Application.Commands;
 using CustomStore.Sales.Data.Contexts;
 using CustomStore.Sales.Data.Repositories;
@@ -20,8 +21,11 @@ namespace CustomStore.WebApp.MVC.Configuration
     {
         public static void RegisterServices(this IServiceCollection services)
         {
-            // Domain Bus
+            // Mediatr (bus-like behavior)
             services.AddScoped<ICustomMediatrHandler, CustomMediatrHandler>();
+
+            // Notification
+            services.AddScoped<INotificationHandler<DomainNotification>, DomainNotificationHandler>();
 
             // Catalog
             services.AddScoped<CatalogContext>();

@@ -33,11 +33,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomStore.Catalog.Applica
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomStore.WebApp.MVC", "src\CustomStore.WebApp.MVC\CustomStore.WebApp.MVC.csproj", "{98424BC0-46CB-4CF2-9820-5D824A4B2B89}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomStore.Sales.Domain", "src\CustomStore.Sales.Domain\CustomStore.Sales.Domain.csproj", "{745581DA-05F4-4A59-B2E4-7E3A82C912D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomStore.Sales.Domain", "src\CustomStore.Sales.Domain\CustomStore.Sales.Domain.csproj", "{745581DA-05F4-4A59-B2E4-7E3A82C912D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomStore.Sales.Data", "src\CustomStore.Sales.Data\CustomStore.Sales.Data.csproj", "{38FB92CB-8818-4960-96A9-D4D895C19A79}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomStore.Sales.Data", "src\CustomStore.Sales.Data\CustomStore.Sales.Data.csproj", "{38FB92CB-8818-4960-96A9-D4D895C19A79}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomStore.Sales.Application", "src\CustomStore.Sales.Application\CustomStore.Sales.Application.csproj", "{E51BB4D8-30C3-4EC5-96BE-6C3E6AA5A59D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomStore.Sales.Application", "src\CustomStore.Sales.Application\CustomStore.Sales.Application.csproj", "{E51BB4D8-30C3-4EC5-96BE-6C3E6AA5A59D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

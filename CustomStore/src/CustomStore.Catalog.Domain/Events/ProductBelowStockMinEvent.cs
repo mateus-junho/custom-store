@@ -1,4 +1,4 @@
-﻿using CustomStore.Core.DomainObjects;
+﻿using CustomStore.Core.Messages.DomainEvents;
 using System;
 
 namespace CustomStore.Catalog.Domain.Events

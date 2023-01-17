@@ -1,8 +1,6 @@
-﻿
-using CustomStore.Core.Messages;
-using System;
+﻿using System;
 
-namespace CustomStore.Core.DomainObjects
+namespace CustomStore.Core.Messages.DomainEvents
 {
     public class DomainEvent : Event
     {

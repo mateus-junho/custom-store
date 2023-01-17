@@ -1,6 +1,8 @@
 ﻿using CustomStore.Catalog.Application.Interfaces;
 using CustomStore.Core.Communication;
+using CustomStore.Core.Messages.CommonMessages.Notifications;
 using CustomStore.Sales.Application.Commands;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
@@ -13,8 +15,10 @@ namespace CustomStore.WebApp.MVC.Controllers
         private readonly ICustomMediatrHandler mediatrHandler;
 
         public CartController(
+            INotificationHandler<DomainNotification> notificationHandler,
             IProductAppService productAppService,
-            ICustomMediatrHandler mediatrHandler)
+            ICustomMediatrHandler mediatrHandler) 
+            : base (notificationHandler, mediatrHandler)
         {
             this.productAppService = productAppService;
             this.mediatrHandler = mediatrHandler;
@@ -45,7 +49,12 @@ namespace CustomStore.WebApp.MVC.Controllers
             var command = new AddOrderItemCommand(ClientId, product.Id, product.Name, quantity, product.Price);
             await mediatrHandler.SendCommand(command);
 
-            TempData["Error"] = "Product unavailable";
+            if(IsValidOperation())
+            {
+                return RedirectToAction("Index");
+            }
+
+            TempData["Errors"] = GetErrorNotifications();
             return RedirectToAction("ProductDetail", "Catalog", new { id });
         }
     }

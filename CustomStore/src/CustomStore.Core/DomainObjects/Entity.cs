@@ -52,6 +52,17 @@ namespace CustomStore.Core.DomainObjects
             return (GetType().GetHashCode() * 907) + Id.GetHashCode();
         }
 
+        public void AddEvent(Event eventItem)
+        {
+            notifications = notifications ?? new List<Event> { };
+            notifications.Add(eventItem);
+        }
+
+        public void RemoveEvent(Event eventItem)
+        {
+            notifications?.Remove(eventItem);
+        }
+
         public void ClearEvents()
         {
             notifications?.Clear();

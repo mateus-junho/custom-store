@@ -9,6 +9,7 @@ using CustomStore.Catalog.Domain.Services;
 using CustomStore.Core.Communication;
 using CustomStore.Core.Messages.CommonMessages.Notifications;
 using CustomStore.Sales.Application.Commands;
+using CustomStore.Sales.Application.Events;
 using CustomStore.Sales.Data.Contexts;
 using CustomStore.Sales.Data.Repositories;
 using CustomStore.Sales.Domain.Interfaces;
@@ -44,7 +45,11 @@ namespace CustomStore.WebApp.MVC.Configuration
 
             services.AddScoped<IOrderRepository, OrderRepository>();
 
-            services.AddScoped<IRequestHandler<AddOrderItemCommand, bool>, OrderCommandHandler>(); 
+            services.AddScoped<IRequestHandler<AddOrderItemCommand, bool>, OrderCommandHandler>();
+
+            services.AddScoped<INotificationHandler<OrderUpdatedEvent>, OrderEventHandler>();
+            services.AddScoped<INotificationHandler<OrderItemAddedEvent>, OrderEventHandler>();
+            services.AddScoped<INotificationHandler<OrderUpdatedEvent>, OrderEventHandler>();
         }
     }
 }

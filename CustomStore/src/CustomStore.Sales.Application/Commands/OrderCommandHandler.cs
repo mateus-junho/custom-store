@@ -1,6 +1,7 @@
 ﻿using CustomStore.Core.Communication;
 using CustomStore.Core.Messages;
 using CustomStore.Core.Messages.CommonMessages.Notifications;
+using CustomStore.Sales.Application.Events;
 using CustomStore.Sales.Domain.Entities;
 using CustomStore.Sales.Domain.Interfaces;
 using MediatR;
@@ -38,6 +39,7 @@ namespace CustomStore.Sales.Application.Commands
                 order.AddItem(orderItem);
 
                 orderRepository.Add(order);
+                order.AddEvent(new DraftOrderStartedEvent(order.ClientId, order.Id));
             }
             else
             {
@@ -52,8 +54,11 @@ namespace CustomStore.Sales.Application.Commands
                 {
                     orderRepository.AddItem(orderItem);
                 }
+
+                order.AddEvent(new OrderUpdatedEvent(order.ClientId, order.Id, order.TotalValue));
             }
 
+            order.AddEvent(new OrderItemAddedEvent(order.ClientId, order.Id, request.ProductId, request.Name, request.Price, request.Quantity));
             return await orderRepository.UnitOfWork.Commit();
         }
 
